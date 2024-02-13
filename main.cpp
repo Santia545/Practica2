@@ -131,5 +131,7 @@ int main()
     client.reclamar();
     seller.vender();
     seller.actualizarInventario();
+    client.logOut();
+    seller.logOut();
     return 0;
 }
