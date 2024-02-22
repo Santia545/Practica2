@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 class User
 {
@@ -118,12 +119,20 @@ int main()
 {
     Client client = Client("Cliente1", "password1", "3311495152", 20);
     checkLogin(client, "password1");
-    client.changePassword("password1", "newpassword1");
+    if(client.changePassword("password1", "newpassword1")){
+        cout<<"Successfully changed password"<<endl;
+    }else{
+        cout<<"Error, old password doesnt match"<<endl;
+    }
     checkLogin(client, "password1");
     checkLogin(client, "newpassword1");
     Seller seller = Seller("Seller1", "password2", "3336147698", 21);
     checkLogin(seller, "password2");
-    seller.changePassword("password1", "newpassword2");
+    if(seller.changePassword("password1", "newpassword2")){
+        cout<<"Successfully changed password"<<endl;
+    }else{
+        cout<<"Error, old password doesnt match"<<endl;
+    }
     checkLogin(seller, "newpassword2");
     checkLogin(seller, "password2");
     client.comprar();
